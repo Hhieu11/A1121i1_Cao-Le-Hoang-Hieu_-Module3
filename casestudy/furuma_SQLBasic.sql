@@ -212,17 +212,49 @@ update 	khach_hang
 
 -- 18 Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng buộc giữa các bảng).
 
-SET SQL_SAFE_UPDATES = 0;
-
-Delete from khach_hang where ma_khach_hang in (Select kh.ma_khach_hang
-from khach_hang kh inner join hop_dong hd on kh.ma_khach_hang = hd.ma_khach_hang
-where (year(ngay_lam_hop_dong)<2021));
-
-
+sET FOREIGN_KEY_CHECKS=0;
+delete from khach_hang where ma_khach_hang in(
+select ma_khach_hang from hop_dong
+where year(ngay_ket_thuc)<2021);
+SET FOREIGN_KEY_CHECKS=1;
 
 
+-- 19.	Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2020 lên gấp đôi. --
 
+UPDATE dich_vu_di_kem 
+SET 
+    gia = gia * 2
+WHERE
+    ma_dich_vu_di_kem IN (SELECT 
+            h.ma_dich_vu_di_kem
+        FROM
+            (SELECT 
+                *
+            FROM
+                dich_vu_di_kem) AS dich_vu_di_kem
+                JOIN
+            (SELECT 
+                hop_dong_chi_tiet.ma_dich_vu_di_kem,
+                    SUM(hop_dong_chi_tiet.so_luong) AS so_lan
+            FROM
+                hop_dong
+            INNER JOIN hop_dong_chi_tiet ON hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+            WHERE
+                YEAR(ngay_lam_hop_dong) = 2020
+            GROUP BY hop_dong_chi_tiet.ma_hop_dong_chi_tiet) AS h ON dich_vu_di_kem.ma_dich_vu_di_kem = h.ma_dich_vu_di_kem
+        WHERE
+            h.so_lan >= 10);
 
+-- 20.	Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống, thông tin hiển thị bao gồm id (ma_nhan_vien, ma_khach_hang), ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi.--
+
+select 	ma_nhan_vien as id, ho_ten
+			, email, so_dien_thoai, ngay_sinh, dia_chi  
+	from 	nhan_vien 
+    union all
+    select 	ma_khach_hang, ho_ten, email
+			, so_dien_thoai, ngay_sinh, dia_chi 
+	from khach_hang
+    
 
 
 

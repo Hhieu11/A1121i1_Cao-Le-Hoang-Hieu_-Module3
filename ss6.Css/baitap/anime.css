@@ -1,0 +1,32 @@
+.header{
+    width:100% ;
+    height: auto;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+.card{
+    width: 40%;
+    border: solid 1px;
+
+
+}
+.header>.card{
+    text-align: center;
+}
+img{
+    padding-top: 20px;
+
+}
+.img-c:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.img-c{
+    transition: transform .2s;
+}
+.footer{
+
+}
