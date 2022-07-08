@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="list::head">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body class="container">
+<h1>Edit song</h1>
+<br>
+<button class="btn btn-warning"><a th:href="@{/music}">Back to music list</a></button>
+<br>
+<form th:action="@{/music/update}" th:method="post" th:object="${music}">
+    <table>
+        <input type="text" hidden th:field="*{id}">
+        <tr>
+            <td><label th:for="name" th:text="Name"></label></td>
+            <td><input type="text" id="name" th:field="*{name}" th:value="*{name}"></td>
+        </tr>
+        <tr>
+            <td><label th:for="artist" th:text="Artist"></label></td>
+            <td><input type="text" id="artist" th:field="*{artist}" th:value="*{artist}"></td>
+        </tr>
+        <tr>
+            <td><label th:for="category" th:text="Category"></label></td>
+            <td><input type="text" id="category" th:field="*{category}" th:value="*{category}"></td>
+        </tr>
+        <tr>
+            <td><label th:for="link" th:text="Link"></label></td>
+            <td><input type="text" id="link" th:field="*{link}" th:value="*{link}"></td>
+        </tr>
+        <br><br>
+        <tr>
+            <td></td>
+            <td><button type="submit" class="btn btn-warning text-primary">Edit song</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
