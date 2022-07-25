@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body class="container">
+<h1>Edit </h1>
+<br>
+<button class="btn btn-warning"><a th:href="@{/list}">Back to music list</a></button>
+<br>
+<form th:action="@{/update}" method="post" th:object="${product}">
+    <table>
+        <input type="text" hidden th:field="*{id}">
+        <tr>
+            <td><label th:for="name" th:text="Name"></label></td>
+            <td><input type="text" id="name" th:field="*{name}" th:value="*{name}"></td>
+        </tr>
+        <tr>
+            <td><label th:for="artist" th:text="Price"></label></td>
+            <td><input type="text" id="artist" th:field="*{price}" th:value="*{price}"></td>
+        </tr>
+        <tr>
+            <td><label th:for="category" th:text="Description"></label></td>
+            <td><input type="text" id="category" th:field="*{description}" th:value="*{description}"></td>
+        </tr>
+        <tr>
+            <td><label th:for="link" th:text="Manufacturer"></label></td>
+            <td><input type="text" id="link" th:field="*{manufacturer}" th:value="*{manufacturer}"></td>
+        </tr>
+        <br><br>
+        <tr>
+            <td></td>
+            <td><button type="submit" class="btn btn-warning text-primary">Edit song</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

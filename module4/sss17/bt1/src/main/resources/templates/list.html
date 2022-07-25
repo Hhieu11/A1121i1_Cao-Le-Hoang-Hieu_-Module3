@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <a th:href="@{/create}">
+        Add new Product
+    </a>
+</p>
+
+<h1>Display all</h1>
+<table border="1">
+    <tr>
+        <th>Index</th>
+        <th>ID</th>
+        <th>Ten</th>
+        <th>Gia</th>
+        <th>Mo ta </th>
+        <th>Nha SX</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tbody th:each="pro, iterStat: ${product}">
+    <tr>
+        <td th:text="${iterStat.count}"></td>
+        <td th:text="${pro.id}"></td>
+        <td th:text="${pro.name}"></td>
+        <td th:text="${pro.price}"></td>
+        <td th:text="${pro.description}"></td>
+        <td th:text="${pro.manufacturer}"></td>
+
+        <td><a th:href="@{/edit/__${pro.id}__}">Edit</a></td>
+        <td><a th:href="@{/delete/__${pro.id}__}">Delete</a></td>
+    </tr>
+    </tbody>
+    </c:forEach>
+
+</table>
+</body>
+</html>
