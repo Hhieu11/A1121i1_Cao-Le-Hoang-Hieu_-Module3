@@ -1,16 +1,26 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ADMIN
-  Date: 6/28/2022
-  Time: 1:42 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title></title>
 </head>
 <body>
-$END$
+<table>
+    <tr>
+        <td>Languages:</td>
+        <td>${languages}</td>
+    </tr>
+    <tr>
+        <td>Size:</td>
+        <td>${size}}</td>
+    </tr>
+    <tr>
+        <td>spams:</td>
+        <td>${spams}</td>
+    </tr>
+    <tr>
+        <td>signature:</td>
+        <td>${signature}</td>
+    </tr>
+</table>
 </body>
 </html>

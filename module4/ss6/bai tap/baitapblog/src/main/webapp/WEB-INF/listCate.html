@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 <body>
-$END$
+<div th:insert="~{fragment/header :: header-flag}"></div>
+
+<a class="nav-link" th:href="@{/createCate}">
+    <button class="btn btn-success">Create</button>
+</a>
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Mã danh mục</th>
+        <th scope="col">Tên danh mục</th>
+        <th scope="col">Sửa</th>
+        <th scope="col"> Xóa</th>
+    </tr>
+    </thead>
+    <tbody th:each="cate,iterStat:${category}">
+    <tr th:object="${cate}">
+        <th scope="row" th:text="${iterStat.count}"></th>
+        <td th:text="*{categoryCode}"></td>
+        <td th:text="*{categoryName}"></td>
+
+        <td>
+            <a th:href="@{/updateCate/__${cate.categoryCode}__}" class="btn btn-warning">Edit</a>
+        </td>
+                <td>
+                    <a th:href="@{/deleteCate/__${cate.categoryCode}__}" class="btn btn-danger">Delete</a>
+
+                </td>
+
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

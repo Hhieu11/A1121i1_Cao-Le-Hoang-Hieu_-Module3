@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>list</title>
 </head>
 <body>
-$END$
+<h1>Display all customer</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Count</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th colspan="2"><a th:href="@{/create}">Create</a></th>
+    </tr>
+    </thead>
+    <tbody th:each="customer, iterStat: ${customer}">
+    <tr th:object="${customer}">
+        <td th:text="${iterStat.count}"></td>
+        <td th:text="*{id}"></td>
+        <td th:text="*{name}"></td>
+        <td th:text="*{email}"></td>
+        <td th:text="*{address}"></td>
+        <td>
+            <a th:href="@{/view/{id}(id=${customer.id})}">View</a>
+        </td>
+        <td>
+            <a th:href="@{/delete/{id}(id=${customer.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

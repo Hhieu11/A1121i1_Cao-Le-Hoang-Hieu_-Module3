@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <body>
-$END$
+<p>
+    <a th:href="@{/list}">
+        Back to product
+    </a>
+</p>
+
+<div id="form">
+    <form th:action="@{/save}" th:object="${music}" method="post" novalidate="novalidate" enctype="multipart/form-data">
+        <input type="hidden" th:field  ="*{id}"/>
+        <div>
+            <label>Ten</label>
+            <input type="text" th:field="*{name}"/>
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+
+        </div>
+        <div>
+            <label>Nghe si</label>
+            <input type="text" th:field="*{singer}"/>
+            <span th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></span>
+
+        </div>
+        <div>
+            <label>The Loai</label>
+            <input type="email" th:field="*{type}"/>
+            <span th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></span>
+        </div>
+
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+
+
 </body>
 </html>

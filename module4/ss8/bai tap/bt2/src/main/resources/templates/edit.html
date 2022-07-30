@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<meta charset="UTF-8">
+<title></title>
 </head>
-<body>
-$END$
+<body class="container">
+<h1>Edit song</h1>
+<br>
+<button class="btn btn-warning"><a th:href="@{/music}">Back to music list</a></button>
+<br>
+<form th:action="@{/update}" method="post" th:object="${music}">
+    <table>
+        <input type="text" hidden th:field="*{id}">
+        <tr>
+            <td><label th:for="name" th:text="Name"></label></td>
+            <td><input type="text" id="name" th:field="*{name}" th:value="*{name}">
+                <span th:if="${#fields.hasErrors('name')}"th:errors="*{name}"></span>
+            </td>
+
+        </tr>
+        <tr>
+            <td><label th:for="singer" th:text="Singer"></label></td>
+            <td><input type="text" id="singer" th:field="*{singer}" th:value="*{singer}">
+                <span th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></span>
+            </td>
+
+        </tr>
+        <tr>
+            <td><label th:for="type" th:text="Type"></label></td>
+            <td><input type="text" id="type" th:field="*{type}" th:value="*{type}">
+                <span th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span>
+            </td>
+
+        </tr>
+
+        <br><br>
+        <tr>
+            <td></td>
+            <td><button type="submit" class="btn btn-warning text-primary">Edit song</button></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>

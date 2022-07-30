@@ -1,6 +1,14 @@
-package com.codegym.model;
+package com.codegym.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.*;
+
+@Entity
+@Table(name="SanPham")
 public class Product {
+    @Id
     private int id;
     private String name;
     private String price;
@@ -8,6 +16,12 @@ public class Product {
     private String producer ;
 
     public Product() {
+
+
+    }
+    public Product(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public Product(int id, String name, String price, String describe, String producer) {

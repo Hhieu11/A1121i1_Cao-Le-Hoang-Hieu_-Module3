@@ -14,7 +14,7 @@
 <div th:insert="~{fragment/header :: header-flag}"></div>
 <center>
     <h1>Create new Blog</h1>
-    <form th:action="@{save}" method="post" th:object="${blog}">
+    <form th:action="@{save}" method="post" th:object="${blog}" novalidate="novalidate" enctype="multipart/form-data">
         <table border="1">
             <input type="hidden" th:field  ="*{id}"/>
             <tr>
@@ -23,15 +23,31 @@
             </tr>
             <tr>
                 <td>Image</td>
-                <td><input type="text" th:field="*{image}" placeholder="Image"></td>
+                <td><input type="file" th:field="*{image}" placeholder="Image"></td>
             </tr>
             <tr>
-                <td>Describe</td>
-                <td><input type="text" th:field="*{content}" placeholder="Content"></td>
+                <td>Content</td>
+                <td>
+                    <textarea type="text" th:field="*{content}" placeholder="Content" >
+<!--                    <input type="text" th:field="*{content}" placeholder="Content">-->
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Catelogy Name</td>
+                <td>
+                    <select th:field="*{category}">
+                        <option value=""></option>
+                        <option th:each="cate : ${category}"
+                                th:value="${cate.categoryCode}"
+                                th:text="${cate.categoryName}"
+                                th:selected="${cate.categoryCode.equals(blog.category.categoryCode)}" />
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>
-                    <input type="submit" value="Save"/>
+                    <input class="btn-outline-danger" type="submit" value="Save"/>
                 </td>
             </tr>
         </table>

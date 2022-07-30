@@ -1,4 +1,6 @@
 package com.codegym.service;
 
-public interface ICustomerService {
+import com.codegym.model.Customer;
+
+public interface ICustomerService extends IGeneralService<Customer> {
 }

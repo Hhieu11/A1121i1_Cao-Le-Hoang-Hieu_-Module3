@@ -1,10 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<h3> List Music</h3>
+<p>
+    <a th:href="@{/create}">
+    Add new music
+</a>
+</p>
+
+<table border="1" >
+<thead>
+<tr>
+    <th>Count</th>
+    <th>Id</th>
+    <th>TEN</th>
+    <th>Nghe si</th>
+    <th>The loai</th>
+    <th>link</th>
+    <th>Nghe</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>View</th>
+</tr>
+</thead>
+<tbody >
+<tr th:each="m,interStar:${music}" th:action="@{/}">
+    <td th:text="${interStar.count}"></td>
+    <td th:text="${m.id}"></td>
+    <td th:text="${m.name}"></td>
+    <td th:text="${m.artist}"></td>
+    <td th:text="${m.genre}"></td>
+    <td th:text="${m.path}"></td>
+    <td>
+        <audio controls>
+<!--            <source th:src="@{'/music/' + ${m.path}}" type="audio/ogg">-->
+<!--            <source th:src="@{'/music/' + ${m.path}}" type="audio/mpeg">-->
+            <source src="https://tainhacmienphi.biz/get/song/api/316304">
+
+        </audio>
+    </td>
+    <td><a th:href="@{/{id}/edit(id=${m.getId()})}">edit</a></td>
+    <td><a th:href="@{/{id}/delete(id=${m.getId()})}">delete</a></td>
+    <td><a th:href="@{/{id}/view(id=${m.getId()})}">view</a></td>
+
+
+
+</tr>
+
+</tbody>
+</table>
+
 </body>
 </html>
