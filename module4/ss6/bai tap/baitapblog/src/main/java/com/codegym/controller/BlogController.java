@@ -69,7 +69,7 @@ public String create(Model model){
 //    @PostMapping("/save")
 //    public  String save(@ModelAttribute("blog") Blog blog){
 //    blogService.create(blog);
-//    return  "redirect:/list";
+    //    return  "redirect:/list";
 //    }
 
 

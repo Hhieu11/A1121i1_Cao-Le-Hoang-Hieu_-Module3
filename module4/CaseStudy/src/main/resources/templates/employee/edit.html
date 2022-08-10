@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head th:replace="~{temp/template::head}">
+</head>
+<body>
+<nav th:replace="~{temp/template::header}"></nav>
+<h3>Edit customer</h3>
+
+<form th:action="@{/employee/update}" th:object="${employee}" method="post">
+    <input th:type="hidden" name="id" th:field="*{employee_id}">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" th:field="*{employee_name}">
+        <!--        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red"> </span>-->
+    </div>
+
+    <div class="form-group">
+        <label>Birthday</label>
+        <input type="date" class="form-control" th:field="*{employee_birthday}">
+        <!--        <span th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" style="color: red"> </span>-->
+    </div>
+
+
+    <div class="form-group">
+        <label>Id card</label>
+        <input type="text" class="form-control" th:field="*{employee_id_card}">
+        <!--        <span th:if="${#fields.hasErrors('idCard')}" th:errors="*{idCard}" style="color: red"> </span>-->
+    </div>  <div class="form-group">
+        <label>Salary</label>
+        <input type="text" class="form-control" th:field="*{employee_salary}">
+        <!--        <span th:if="${#fields.hasErrors('idCard')}" th:errors="*{idCard}" style="color: red"> </span>-->
+    </div>
+
+    <div class="form-group">
+        <label>Phone</label>
+        <input type="text" class="form-control" th:field="*{employee_phone}">
+        <!--        <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" style="color: red"> </span>-->
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" th:field="*{employee_email}">
+        <!--        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red"> </span>-->
+    </div>
+
+    <div class="form-group">
+        <label>Address</label>
+        <input type="text" class="form-control" th:field="*{employee_address}">
+        <!--        <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" style="color: red"> </span>-->
+    </div>
+    <div class="form-group row">
+        <label >User</label>
+
+            <input type="text" class="form-control" th:field="*{user}">
+    </div>
+
+
+    <div class="form-group row">
+        <label>Division</label>
+        <select th:name="divi" th:field="*{division}">
+            <option value="">Choose Division</option>
+            <th:block th:each="divi : ${division}">
+                <option th:value="${divi.division_id}" th:text="${divi.division_name}" ></option>
+            </th:block>
+        </select>
+    </div>
+
+    <div class="form-group row">
+        <label>Education</label>
+        <select th:name="edu" th:field="*{education}">
+            <option value="">Choose Education</option>
+            <th:block th:each="edu : ${education}">
+                <option th:value="${edu.education_degree_id}" th:text="${edu.education_degree_name}" ></option>
+            </th:block>
+        </select>
+    </div>
+
+
+    <div class="form-group row">
+        <label>Position</label>
+        <select th:name="pos" th:field="*{position}">
+            <option value="">Choose Position</option>
+            <th:block th:each="pos : ${position}">
+                <option th:value="${pos.position_id}" th:text="${pos.position_name}" ></option>
+            </th:block>
+        </select>
+    </div>
+    <!--    <a th:href="@{/customer/listPage}" class="btn btn-secondary">Return</a>-->
+    <input type="submit" class="btn btn-primary" value="Update">
+</form>
+</body>
+<div th:replace="~{temp/template::footer}"></div>
+</html>

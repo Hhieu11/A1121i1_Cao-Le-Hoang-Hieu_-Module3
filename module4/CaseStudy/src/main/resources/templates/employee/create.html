@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head th:replace="~{temp/template::head}">
+</head>
+<body>
+<nav th:replace="~{temp/template::header}"></nav>
+<form th:action="@{/employee/save}" th:object="${employee}" method="post">
+    <div class="form-group row" hidden>
+        <label for="id" class="col-sm-2 col-form-label">Ma Nhan vien</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="id" th:field="*{employee_id}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="name" class="col-sm-2 col-form-label">Ten Nhan Vien</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="name" th:field="*{employee_name}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="brithday" class="col-sm-2 col-form-label">Ngay sinh Nhan Vien</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" id="brithday" th:field="*{employee_birthday}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="customerIdCard" class="col-sm-2 col-form-label">Idcard Nhan Vien</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="customerIdCard" th:field="*{employee_id_card}">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="salary" class="col-sm-2 col-form-label">Luong  Nhan Vien</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="salary" th:field="*{employee_salary}">
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <label for="customerPhone" class="col-sm-2 col-form-label">SDT Nhan Vien</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="customerPhone" th:field="*{employee_phone}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="customerEmail" class="col-sm-2 col-form-label">Email Nhan Vien</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="customerEmail" th:field="*{employee_email}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="customerAddress" class="col-sm-2 col-form-label">dai chi Nhan Vien</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="customerAddress" th:field="*{employee_address}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="username" class="col-sm-2 col-form-label">User</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="username" th:field="*{user}">
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <label>Division</label>
+        <select th:name="divi" th:field="*{division}">
+            <option value="">Choose Division</option>
+            <th:block th:each="divi : ${division}">
+                <option th:value="${divi.division_id}" th:text="${divi.division_name}" ></option>
+            </th:block>
+        </select>
+    </div>
+
+    <div class="form-group row">
+        <label>Education</label>
+        <select th:name="edu" th:field="*{education}">
+            <option value="">Choose Education</option>
+            <th:block th:each="edu : ${education}">
+                <option th:value="${edu.education_degree_id}" th:text="${edu.education_degree_name}" ></option>
+            </th:block>
+        </select>
+    </div>
+
+
+    <div class="form-group row">
+        <label>Position</label>
+        <select th:name="pos" th:field="*{position}">
+            <option value="">Choose Position</option>
+            <th:block th:each="pos : ${position}">
+                <option th:value="${pos.position_id}" th:text="${pos.position_name}" ></option>
+            </th:block>
+        </select>
+    </div>
+
+
+
+
+    <input type="submit" class="btn btn-primary" value="Create">
+</form>
+
+
+</body>
+
+<div th:replace="~{temp/template::footer}"></div>
+</html>

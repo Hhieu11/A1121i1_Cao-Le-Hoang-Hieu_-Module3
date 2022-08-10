@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fca1bd1c-c8f8-42c6-9941-a2640d0c3c5a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy/src/main/java/com/codegym/casestudy/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy/src/main/java/com/codegym/casestudy/entity/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy/src/main/java/com/codegym/casestudy/entity/CustomerType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy/src/main/java/com/codegym/casestudy/repository/CustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy/src/main/java/com/codegym/casestudy/repository/CustomerTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy/src/main/java/com/codegym/casestudy/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy/src/main/java/com/codegym/casestudy/service/CustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy/src/main/java/com/codegym/casestudy/service/CustomerTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy/src/main/java/com/codegym/casestudy/service/CustomerTypeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy/src/main/resources/static/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy/src/main/resources/templates/customer/listCustomer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../CaseStudy/src/main/resources/templates/temp/template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/furuma/src/main/webapp/view/head.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/furuma/src/main/webapp/view/head.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../casestudy/furuma/src/main/webapp/view/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../casestudy/furuma/src/main/webapp/view/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ss1/thuc hanh/TH2/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss1/thuc hanh/TH2/customer-management" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2CpM037JiLczw7uJBJ7CX2njm53" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../sss17/bt1" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fca1bd1c-c8f8-42c6-9941-a2640d0c3c5a" name="Default Changelist" comment="" />
+      <created>1659494846354</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659494846354</updated>
+      <workItem from="1659494847911" duration="38000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1659494885099">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1366.728@0.0.1536.824" timestamp="1659494885099" />
+  </component>
+</project>

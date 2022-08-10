@@ -15,45 +15,45 @@
 <center>
     <h1>Create new Blog</h1>
     <form th:action="@{save}" method="post" th:object="${blog}" novalidate="novalidate" enctype="multipart/form-data">
-        <table border="1">
-            <input type="hidden" th:field  ="*{id}"/>
-            <tr>
-                <td>Name</td>
-                <td><input type="text" th:field="*{name}" placeholder="Name blog"></td>
-            </tr>
-            <tr>
-                <td>Image</td>
-                <td><input type="file" th:field="*{image}" placeholder="Image"></td>
-            </tr>
-            <tr>
-                <td>Content</td>
-                <td>
+    <table border="1">
+        <input type="hidden" th:field  ="*{id}"/>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" th:field="*{name}" placeholder="Name blog"></td>
+        </tr>
+        <tr>
+            <td>Image</td>
+            <td><input type="file" th:field="*{image}" placeholder="Image"></td>
+        </tr>
+        <tr>
+            <td>Content</td>
+            <td>
                     <textarea type="text" th:field="*{content}" placeholder="Content" >
 <!--                    <input type="text" th:field="*{content}" placeholder="Content">-->
                     </textarea>
-                </td>
-            </tr>
-            <tr>
-                <td>Catelogy Name</td>
-                <td>
-                    <select th:field="*{category}">
-                        <option value=""></option>
-                        <option th:each="cate : ${category}"
-                                th:value="${cate.categoryCode}"
-                                th:text="${cate.categoryName}"
-                                th:selected="${cate.categoryCode.equals(blog.category.categoryCode)}" />
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input class="btn-outline-danger" type="submit" value="Save"/>
-                </td>
-            </tr>
-        </table>
-    </form>
-    <br>
-    <a th:href="@{/list}">Back to list</a>
+            </td>
+        </tr>
+        <tr>
+            <td>Catelogy Name</td>
+            <td>
+                <select th:field="*{category}">
+                    <option value=""></option>
+                    <option th:each="cate : ${category}"
+                            th:value="${cate.categoryCode}"
+                            th:text="${cate.categoryName}"
+                            th:selected="${cate.categoryCode.equals(blog.category.categoryCode)}" />
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input class="btn-outline-danger" type="submit" value="Save"/>
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+<a th:href="@{/list}">Back to list</a>
 </center>
 </body>
 </html>

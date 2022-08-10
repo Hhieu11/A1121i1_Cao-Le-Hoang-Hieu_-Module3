@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head th:replace="~{temp/template::head}">
+</head>
+<body>
+
+<nav th:replace="~{temp/template::header}"></nav>
+<form th:action="@{/product/save}" th:object="${product}" method="post">
+
+
+<div class="form-group row" hidden>
+    <label for="1" class="col-sm-2 col-form-label">Ma Product</label>
+    <div class="col-sm-6">
+        <input type="text" class="form-control" id="1"  th:field="*{productId}">
+
+    </div>
+</div>
+    <br>
+
+    <div class="form-group row">
+        <label for="id" class="col-sm-2 col-form-label">Ma Product</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="id" th:field="*{productCode}">
+
+        </div>
+    </div>
+    <br>
+
+
+    <div class="form-group row">
+        <label for="name" class="col-sm-2 col-form-label">Ten KH</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="name" th:field="*{productName}">
+            <td th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}"> Errors</td>
+        </div>
+    </div>
+    <br>
+
+
+    <div class="form-group row">
+        <label for="brithday" class="col-sm-2 col-form-label">Ngay sinh</label>
+        <div class="col-sm-6">
+            <input type="date" class="form-control" id="brithday" th:field="*{productBrithday}">
+            <p th:if="${#fields.hasErrors('productBrithday')}" th:errors="*{productBrithday}"> Errors</p>
+        </div>
+    </div>
+    <br>
+
+
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Gioi tinh</label>
+        <div class="col-sm-6">
+
+            <select th:name="gender" th:field="*{productGender}">
+
+                <option  value="0" th:text="Woman"></option>
+                <option  value="1" th:text="Man"></option>
+            </select>
+            <p th:if="${#fields.hasErrors('productGender')}" th:errors="*{productGender}"> Errors</p>
+        </div>
+    </div>
+    <br>
+
+
+    <div class="form-group row">
+        <label for="customerIdCard" class="col-sm-2 col-form-label">Idcard KH</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="customerIdCard" th:field="*{prodyctIdCard}">
+            <p th:if="${#fields.hasErrors('prodyctIdCard')}" th:errors="*{prodyctIdCard}"> Errors</p>
+        </div>
+    </div>
+    <br>
+
+
+
+    <div class="form-group row">
+        <label for="customerEmail" class="col-sm-2 col-form-label">Email KH</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="customerEmail" th:field="*{productEmail}">
+            <p th:if="${#fields.hasErrors('productEmail')}" th:errors="*{productEmail}"> Errors</p>
+        </div>
+    </div>
+    <br>
+
+
+
+
+    <div class="form-group row">
+
+        <label class="col-sm-2 col-form-label">catelogy Type</label>
+
+        <div class="col-sm-6">
+            <select th:name="c" th:field="*{catelogy}">
+                <option value="">Choose customer type</option>
+                <th:block th:each="c : ${catelogy}">
+                    <option th:value="${c.catelogyId}" th:text="${c.catelogyName}" ></option>
+                </th:block>
+            </select>
+        </div>
+
+<!--        <p th:if="${#fields.hasErrors('customerType')}" th:errors="*{customerType}"> Errors</p>-->
+    </div>
+    <br>
+
+
+
+
+    <input type="submit" class="btn btn-primary" value="Create">
+</form>
+
+
+</body>
+
+<div th:replace="~{temp/template::footer}"></div>
+</html>
